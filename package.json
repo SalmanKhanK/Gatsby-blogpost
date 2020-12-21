@@ -27,6 +27,7 @@
     "gatsby-source-contentful": "^4.3.0",
     "mdi-material-ui": "^6.21.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-firebaseui": "^4.1.0"
   }
 }

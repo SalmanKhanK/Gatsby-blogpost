@@ -1,37 +1,24 @@
 import * as React from "react"
 import { Link } from 'gatsby'
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Button, Container, Grid } from '@material-ui/core/';
 import style from './index.module.css'
 import Layout from '../components/Layout'
-const options = {
-  //   renderMark: {
-  //     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-  //   },
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <h3>{children}</h3>,
-      [BLOCKS.EMBEDDED_ASSET]: node => {
-        return (
-          <>
-            <h2>Embedded Asset</h2>
-            <pre>
-              <code>{JSON.stringify(node, null, 2)}</code>
-            </pre>
-          </>
-        )
-      },
-    },
-  }
+import {showBlog} from '../components/Firebaseauth'
+import Firebaseauth from '../components/Firebaseauth'
 export default ({ data }) => {
+  console.log(showBlog,"blogtype")
   const posts = data.allContentfulBlogPost.edges;
-  
+  console.log(posts)
+  let twoBlogs=posts.slice(0,2);
+  if(showBlog){
+    twoBlogs=posts;
+  }
   return (
+    <div>
     <Layout>
-      <div>
+      
         {
-          posts.map((post,key) => {
-            const text=renderRichText(post.node.body,options)
+          twoBlogs.map((post,key) => {
             return (
               <Container maxWidth="sm" key={key}>
                 <Grid item xs={12}>
@@ -47,8 +34,9 @@ export default ({ data }) => {
             )
           })
         }
-      </div>
       </Layout>
+      <Firebaseauth />
+      </div>
   )
 }
 export const query = graphql`
