@@ -1,4 +1,6 @@
-require('dotenv').config();
+require("dotenv").config({
+  path: `.env`,
+})
 module.exports = {
   flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
@@ -8,7 +10,6 @@ module.exports = {
 
             options: {
               spaceId: process.env.spaceId,
-              // Learn about environment variables: https://gatsby.dev/env-vars
               accessToken: process.env.accessToken,
             },
           },
