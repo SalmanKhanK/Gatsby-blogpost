@@ -18,7 +18,6 @@ export default ({ children }: LayoutProps) => {
             <div style={{marginTop:"100px"}}>
                   {children}
             </div>
-             {/* <Firebaseauth />  */}
         </div>
     )
 }

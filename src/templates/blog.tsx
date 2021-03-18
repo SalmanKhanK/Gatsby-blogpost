@@ -1,10 +1,8 @@
 import React from 'react'
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS} from "@contentful/rich-text-types";
 import {Button,Container,Grid} from '@material-ui/core/';
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import {Link} from 'gatsby'
-const Bold = ({ children }) => <span className="bold">{children}</span>
-const Text = ({ children }) => <p className="align-center">{children}</p>
 import Layout from '../components/Layout'
 const options = {
 //   renderMark: {

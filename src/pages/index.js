@@ -14,7 +14,8 @@ export default ({ data }) => {
     twoBlogs=posts;
   }
   return (
-    <div>
+    <Container maxWidth="sm">
+    
     <Layout>
       
         {
@@ -23,7 +24,7 @@ export default ({ data }) => {
               <Container maxWidth="sm" key={key}>
                 <Grid item xs={12}>
                   <h1 className={style.heading}>{post.node.title}</h1>
-                  <img src={`${post.node.image.fluid.src}`} className={style.img} />
+                  <img src={`${post.node.image.fluid.src}`} alt="imgblog" className={style.img} />
                   <br />
                   <p>{post.node.excerpt.excerpt}</p>
                   <Link to={`/${post.node.slug}/`} className={style.linkStyle}>
@@ -35,8 +36,11 @@ export default ({ data }) => {
           })
         }
       </Layout>
-      <Firebaseauth />
-      </div>
+      {
+        showBlog ?  null :<Firebaseauth />
+      }
+            
+      </Container>
   )
 }
 export const query = graphql`
