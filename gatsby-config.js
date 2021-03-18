@@ -9,8 +9,9 @@ module.exports = {
             resolve: `gatsby-source-contentful`,
 
             options: {
-              spaceId: process.env.spaceId,
-              accessToken: process.env.accessToken,
+              spaceId: "4peft16chc5j",
+              accessToken: "5wpHDQNjmxtTsJwkOJfiCu4gQc7MoegP8RsZFq-ZM2I"
+              // accessToken: process.env.accessToken,
             },
           },
           {
